@@ -1,0 +1,67 @@
+* {
+  margin: 0;
+  padding: 0px;
+  box-sizing: border-box;
+}
+
+.wrap {
+  background: blue;
+  width: 800px;
+  padding-top: 50px;
+}
+
+.wrap {
+  display: flex;
+  list-style-type: none;
+  justify-content: center;
+  align-items: end;
+}
+
+.wrap .menu {
+  background: red;
+  width: 100px;
+  height: 100px;
+  /* padding: 40px 0px; */
+  line-height: 100px;
+  /* 이미지 높이만큼 */
+  display: flex;
+  justify-content: center;
+}
+
+/* .img {
+  display: flex;
+} */
+
+.img img {
+  display: block;
+  /* 이미지는 인라인 태그. 그래서 가장 작은 px값을 가져서 wrap과 img 사이에 여백이 생긴다. 그래서 인라인 태그인 이미지를 block으로 바꿔주는 방법도 있다. */
+}
+
+.wrap .menu.gray {
+  background: gray;
+}
+.wrap .menu.orange {
+  background: orange;
+}
+
+div.wrap1 {
+  display: flex;
+  width: 800px;
+  height: 300px;
+}
+div.wrap1 .l {
+  display: flex;
+  list-style-type: none;
+  flex-direction: column;
+  align-items: center;
+  width: 20%;
+  padding-top: 30px;
+  background: blue;
+  color: white;
+  row-gap: 10px;
+}
+
+div.wrap1 .r {
+  background: orange;
+  width: 80%;
+}

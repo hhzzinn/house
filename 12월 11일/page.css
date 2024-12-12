@@ -1,0 +1,124 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+ul {
+  list-style-type: none;
+}
+
+img {
+  display: block;
+}
+
+#wrap {
+  width: 1200px;
+  margin: 0 auto;
+}
+
+#header {
+  width: 100%;
+  margin-bottom: 50px;
+}
+
+#header .top {
+  padding-right: 15px;
+}
+
+#header .top .top_texts {
+  display: flex;
+  justify-content: end;
+  padding: 7px 0;
+}
+
+#header .top .top_texts .top_texts {
+  margin: 0 15px;
+  cursor: pointer;
+  position: relative;
+}
+
+#header .top .top_texts .top_texts:nth-child(2)::before {
+  content: "";
+  border: 1px solid;
+  position: absolute;
+  height: 20px;
+  left: -15px;
+  /* 가상 선택자의 상위 태그는 가상선택자를 만들었던 태그가 상위태그가 된다. 즉 여기서 상위태그는 .top_texts:nth-child(2)가 상위태그가 되는 것이다. */
+}
+
+#header .top .top_texts .top_texts:nth-child(2)::after {
+  content: "";
+  border: 1px solid;
+  position: absolute;
+  height: 20px;
+  right: -15px;
+}
+
+/* nth child(n)는 선택된 태그와 같은 태그들 중 n번째 */
+/* 가상 선택자 before와 after로 태그 사이에 막대를 넣을 수 있다. */
+/* contet:"";를 넣어야지만 화면에 표현이 된다. */
+
+#header .nav {
+  width: 100%;
+  border-bottom: 1px solid #ccc;
+}
+
+#header .nav .menu_list {
+  display: flex;
+  justify-content: space-evenly;
+  padding: 20px 0;
+  font-size: 25px;
+}
+
+#header .nav .menu_list .menu {
+  cursor: pointer;
+  padding: 5px 25px;
+}
+
+#header .nav .menu_list .menu {
+  position: relative;
+}
+
+#header .nav .menu_list .menu::before {
+  content: "";
+  border-bottom: 2px solid lightcoral;
+  display: block;
+  position: absolute;
+  bottom: 0px;
+  left: 0px;
+  width: 0%;
+  transition: width 1s ease;
+  /* transition은 동적인 효과를 표현해 준다. 단, transition을 표현하기 위해 어디서부터 어디까지 표현할 지 입력을 해줘야 된다. 그래서 표시되는 가상 선택자에 너비 0%, 가상 선택자의 hover에 너비 100%를 주면 0~100을 주고 transition width 1s ease를 입력해 주면 너비 0 ~ 100까지 1초동안 표시해준다. */
+}
+
+#header .nav .menu_list .menu:hover::before {
+  width: 100%;
+}
+
+/* hover는 화면에 표시가 가능한 상태인 애들만 표시해줌. 그래서 가상 선택자는 hover를 해도 나오지 않음. 나오게 하는 법은 가상 선택자 애들을 화면에 표시되게 해준다. 단, 기본적으로 가상 선택자 before, after는 인라인 태그이기 때문에 너비를 가지고 있지 않아 표시가 안됨. 따라서 블록태그로 바꾼다음 너비를 주고 값을 스타일을 주면 화면에 나오게 된다. 여기서 한가지 더, 우리는 마우스를 가져다 댈 때 나오게 하고 싶은 것이므로
+#header .nav .menu_list .menu::before 즉, 가상선택자의 너비를 없애고 가상선택자의 hover에 너비를 입력해 넣어주면 마우스를 가져다 댈 때 밑줄이 표현됨. 
+*/
+
+#header .nav .sub_menu_list {
+  display: none;
+}
+
+#main {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5px;
+}
+
+#main .img_box {
+  /* width: calc(25% - 5px); */
+  /* flex-grow 비율, flex-shrink 공간 부족 여부*/
+  flex: 1 1 calc(25% - 5px);
+  /* 이렇게 하면 딱 맞춰서 들어감 */
+}
+
+#main .img_box img {
+  width: 100%;
+}
+
+/* 과제 : 이미지를 누르면 원래 사이즈의 이미지 돌출되게 하기 */
